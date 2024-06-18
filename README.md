@@ -8,6 +8,17 @@ This project is created to demonstrate backend knowledge. The React app included
 
 Follow these steps to get the Receipt Processor app up and running on your local machine.
 
+### Options to run app
+
+If you prefer to skip the below steps and run the application in a docker container run the following commands:
+
+```
+docker build -t receipt-processor .
+```
+```
+docker run -d -p 3001:3001 receipt-processor
+```
+
 ### Prerequisites
 
 Before you begin, ensure you have the following installed on your computer:
