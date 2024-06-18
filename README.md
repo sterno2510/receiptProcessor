@@ -13,9 +13,13 @@ Follow these steps to get the Receipt Processor app up and running on your local
 If you prefer to run the application in a docker container, follow these steps:
 
 1. **Build the Docker Image:**
-
-
-2. **Run the Docker Container:**
+ ```
+docker build -t receipt-processor .
+```
+3. **Run the Docker Container:**
+```
+docker run -d -p 3001:3001 receipt-processor
+```
 
 
 This command builds and runs the Docker container named `receipt-processor`, mapping port 3001 on your local machine to port 3001 in the container.
