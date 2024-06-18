@@ -35,9 +35,8 @@ Before you begin, ensure you have the following installed on your computer:
    - Navigate to the directory where you want to store the app.
    - Run the following command to clone the repository:
      ```
-     git clone <repository-url>
+     git clone https://github.com/sterno2510/receiptProcessor.git
      ```
-   Replace `<repository-url>` with the actual URL of the repository.
 
 2. **Navigate to the Project Directory:**
    - After cloning, navigate into the project directory using:
