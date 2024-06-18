@@ -69,22 +69,5 @@ Before you begin, ensure you have the following installed on your computer:
 
 6. **Explore the App:**
    - You should now see the Receipt Processor app running locally!
-   - Upload a receipt image or enter text (depending on app functionality) to see how it processes receipts.
+   - Click on any of the receipts to test functionality of the backend!
 
-## Additional Notes
-
-- **Folder Structure:**
-  - `public/`: Contains the public assets and `index.html`.
-  - `src/`: Contains the source code for the React app.
-
-- **Customization:**
-  - You can customize the app by modifying files in the `src/` directory. Check out React's documentation for more details on how to work with React components.
-
-- **Troubleshooting:**
-  - If you encounter any issues during installation or while running the app, refer to the error messages in the terminal for guidance. You can also search online for solutions specific to your issue.
-
-## Feedback and Support
-
-If you have any feedback or need support, please reach out to [your-email@example.com](mailto:your-email@example.com).
-
-## Enjoy using the Receipt Processor app!
