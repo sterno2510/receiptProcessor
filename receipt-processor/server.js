@@ -2,10 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, './build')));
+// app.use(cors({ origin: 'http://localhost' }));
 
 const customerData = new Map();
 
@@ -79,6 +82,11 @@ app.post('/receipts/:id/points', (req, res) => {
 
   res.send({points: rewardPoints})
 })
+
+app.get('*', (req, res) => {
+  console.log('getting main page');
+  res.sendFile(path.join(__dirname, './build', 'index.html'));
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
