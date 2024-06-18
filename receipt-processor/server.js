@@ -8,7 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './build')));
-// app.use(cors({ origin: 'http://localhost' }));
 
 const customerData = new Map();
 
