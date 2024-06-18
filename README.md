@@ -10,14 +10,19 @@ Follow these steps to get the Receipt Processor app up and running on your local
 
 ### Options to run app
 
-If you prefer to skip the below steps and run the application in a docker container run the following commands:
+If you prefer to run the application in a docker container, follow these steps:
 
-```
-docker build -t receipt-processor .
-```
-```
-docker run -d -p 3001:3001 receipt-processor
-```
+1. **Build the Docker Image:**
+
+
+2. **Run the Docker Container:**
+
+
+This command builds and runs the Docker container named `receipt-processor`, mapping port 3001 on your local machine to port 3001 in the container.
+
+3. **View the App:**
+
+Once the container is running, you can view the app by navigating to [http://localhost:3001](http://localhost:3001) in your web browser.
 
 ### Prerequisites
 
@@ -28,57 +33,57 @@ Before you begin, ensure you have the following installed on your computer:
 ### Installing Node.js (version 22.2.0)
 
 1. **Download Node.js:**
-   - Visit [nodejs.org](https://nodejs.org).
-   - Download the Node.js version 22.2.0 installer suitable for your operating system.
+- Visit [nodejs.org](https://nodejs.org).
+- Download the Node.js version 22.2.0 installer suitable for your operating system.
 
 2. **Install Node.js:**
-   - Run the downloaded installer and follow the installation prompts.
-   - Verify the installation by opening a terminal and running:
-     ```
-     node --version
-     ```
-     This should display `v22.2.0`.
+- Run the downloaded installer and follow the installation prompts.
+- Verify the installation by opening a terminal and running:
+  ```
+  node --version
+  ```
+  This should display `v22.2.0`.
 
 ### Installation Steps for Receipt Processor App
 
 1. **Clone the Repository:**
-   - Open your terminal (command prompt on Windows).
-   - Navigate to the directory where you want to store the app.
-   - Run the following command to clone the repository:
-     ```
-     git clone https://github.com/sterno2510/receiptProcessor.git
-     ```
+- Open your terminal (command prompt on Windows).
+- Navigate to the directory where you want to store the app.
+- Run the following command to clone the repository:
+  ```
+  git clone https://github.com/sterno2510/receiptProcessor.git
+  ```
 
 2. **Navigate to the Project Directory:**
-   - After cloning, navigate into the project directory using:
-     ```
-     cd receipt-processor
-     ```
+- After cloning, navigate into the project directory using:
+  ```
+  cd receipt-processor
+  ```
 
 3. **Install Dependencies:**
-   - Once inside the project directory, install dependencies by running:
-     ```
-     npm install
-     ```
-   This command will download and install all necessary packages defined in `package.json`.
+- Once inside the project directory, install dependencies by running:
+  ```
+  npm install
+  ```
+This command will download and install all necessary packages defined in `package.json`.
 
 4. **Start the Development Server:**
-   - To start the server using `nodemon`, run:
-     ```
-     nodemon server.js
-     ```
-     Make sure your server entry point file is named `server.js`. Adjust the command if your file has a different name.
+- To start the server using `nodemon`, run:
+  ```
+  nodemon server.js
+  ```
+  Make sure your server entry point file is named `server.js`. Adjust the command if your file has a different name.
 
 5. **Start the React App:**
-   - Open a new terminal window/tab (while keeping the server running).
-   - Navigate to the project directory if not already there.
-   - Start the React app by running:
-     ```
-     npm start
-     ```
-   This command compiles the React app and opens it in your default web browser. If it doesn't open automatically, you can visit `http://localhost:3000` in your browser.
+- Open a new terminal window/tab (while keeping the server running).
+- Navigate to the project directory if not already there.
+- Start the React app by running:
+  ```
+  npm start
+  ```
+This command compiles the React app and opens it in your default web browser. If it doesn't open automatically, you can visit `http://localhost:3000` in your browser.
 
 6. **Explore the App:**
-   - You should now see the Receipt Processor app running locally!
-   - Click on any of the receipts to test functionality of the backend!
+- You should now see the Receipt Processor app running locally!
+- Click on any of the receipts to test functionality of the backend!
 
