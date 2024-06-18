@@ -12,26 +12,27 @@ app.use(express.static(path.join(__dirname, './build')));
 const customerData = new Map();
 
 // route to get Customer ID
-app.post('/receipts/process', async (req, res) => {
-  try {
-    if (!req.body) {
-      throw new Error('Request body is missing or empty.');
-    }
-    const customerId = uuidv4();
-    console.log(`Generating new customer ID: ${customerId}`);
-    req.body.customerId = customerId;
-
-    customerData.set(customerId);
-
-    const rewardsPoints= await axios.post(`http://localhost:3001/receipts/${customerId}/points`, req.body);
-
-    res.json(rewardsPoints.data)
-
-  } catch (error) {
-    console.error('Error processing receipt:', error.message);
-    res.status(500).json({ error: 'Failed to process receipt.' });
+app.post('/receipts/process', (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({ error: 'Request body is missing or empty.' });
   }
+
+  const customerId = uuidv4();
+  console.log(`Generating new customer ID: ${customerId}`);
+  req.body.customerId = customerId;
+
+  customerData.set(customerId, req.body);
+
+  axios.post(`http://localhost:3001/receipts/${customerId}/points`)
+    .then(rewardsPoints => {
+      res.json(rewardsPoints.data);
+    })
+    .catch(error => {
+      console.error('Error processing receipt:', error.message);
+      res.status(500).json({ error: 'Failed to process receipt.' });
+    });
 });
+
 
 // function to actually calculate reward points
 const calculateRewardPoints = (receipt) => {
@@ -73,13 +74,16 @@ const calculateRewardPoints = (receipt) => {
 app.post('/receipts/:id/points', (req, res) => {
   console.log('calculating the customers reward points')
   let rewardPoints = 0;
-  if (!customerData.has(req.params.id)) {
+  const customerID = req.params.id;
+  if (!customerData.has(customerID)) {
     res.status(404).send("Customer not found");
-  } else {
-    rewardPoints = calculateRewardPoints(req.body)
   }
 
-  res.send({points: rewardPoints})
+  const receipt = customerData.get(customerID);
+  rewardPoints = calculateRewardPoints(receipt);
+
+
+  res.send({points: rewardPoints});
 })
 
 app.get('*', (req, res) => {
