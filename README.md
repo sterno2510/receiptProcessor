@@ -28,6 +28,7 @@ This command builds and runs the Docker container named `receipt-processor`, map
 
 Once the container is running, you can view the app by navigating to [http://localhost:3001](http://localhost:3001) in your web browser.
 
+## In lieu of using Docker, follow the steps below
 ### Prerequisites
 
 Before you begin, ensure you have the following installed on your computer:
