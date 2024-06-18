@@ -4,7 +4,22 @@ import styled from 'styled-components';
 
 const ListStyled = styled.li`
   padding: 10px;
-`
+`;
+
+const JsonStyled = styled.pre`
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    text-align: start !important;
+`;
+
+const JsonContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+`;
 
 const receiptOne = {
   "retailer": "Walgreens",
@@ -66,17 +81,31 @@ const ReceiptProcessor = () => {
   }
   return (
     <>
-    <div>Submit recipe for calculation</div>
-      <ListStyled>
-        <button type='button' onClick={() => {calculateRewardPoints(receiptOne)}}>Click to calculate rewards for Sample Receipt 1</button>
-     </ListStyled>
-      <ListStyled>
-        <button type='button' onClick={() => {calculateRewardPoints(receiptTwo)}}>Click to calculate rewards for Sample Receipt 2</button>
-     </ListStyled>
-      <ListStyled>
-        <button type='button' onClick={() => {calculateRewardPoints(receiptThree)}}>Click to calculate rewards for Sample Receipt 3</button>
-     </ListStyled>
-    <div>Rewards Points Earned: {rewardPoints}</div>
+      <h1>Receipt Rewards Processor</h1>
+          <JsonContainer>
+            <JsonStyled>
+              <h2>Sample Receipt 1</h2>
+              {JSON.stringify(receiptOne, null, 2)}
+            </JsonStyled>
+            <JsonStyled>
+              <h2>Sample Receipt 2</h2>
+              {JSON.stringify(receiptTwo, null, 2)}
+            </JsonStyled>
+            <JsonStyled>
+              <h2>Sample Receipt 3</h2>
+              {JSON.stringify(receiptThree, null, 2)}
+            </JsonStyled>
+          </JsonContainer>
+        <ListStyled>
+          <button type='button' onClick={() => {calculateRewardPoints(receiptOne)}}>Click to calculate rewards for Sample Receipt 1</button>
+      </ListStyled>
+        <ListStyled>
+          <button type='button' onClick={() => {calculateRewardPoints(receiptTwo)}}>Click to calculate rewards for Sample Receipt 2</button>
+      </ListStyled>
+        <ListStyled>
+          <button type='button' onClick={() => {calculateRewardPoints(receiptThree)}}>Click to calculate rewards for Sample Receipt 3</button>
+      </ListStyled>
+      <div>Rewards Points Earned: {rewardPoints}</div>
     </>
   )
 };
