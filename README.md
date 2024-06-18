@@ -12,11 +12,26 @@ Follow these steps to get the Receipt Processor app up and running on your local
 
 If you prefer to run the application in a docker container, follow these steps:
 
-1. **Build the Docker Image:**
+1. **Clone the Repository:**
+- Open your terminal (command prompt on Windows).
+- Navigate to the directory where you want to store the app.
+- Run the following command to clone the repository:
+  ```
+  git clone https://github.com/sterno2510/receiptProcessor.git
+  ```
+
+2. **Navigate to the Project Directory:**
+- After cloning, navigate into the project directory using:
+  ```
+  cd receipt-processor
+  ```
+
+3. **Build the Docker Image:**
  ```
 docker build -t receipt-processor .
 ```
-3. **Run the Docker Container:**
+
+4. **Run the Docker Container:**
 ```
 docker run -d -p 3001:3001 receipt-processor
 ```
